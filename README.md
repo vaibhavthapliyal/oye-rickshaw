@@ -1,6 +1,7 @@
 # oye-rickshaw
 ## Assumptions
 1. I have added the max limit of vehicles that can be returned via the API as 500.
+2. I have not added a security layer on top of the API. As of now it's an open API.
 
 ## Approach
 The project consists of two APIs:
@@ -116,4 +117,7 @@ curl -X PUT "localhost:9200/vehicle_location_tracking?pretty" -H 'Content-Type: 
 1. Clone this repository and use the cd command to go inside the "oye-rickshaw-assignment" folder.
 2. Build the project using the command "mvn clean install". 
 3. The API can now be deployed through the command "java -jar target/oye-rickshaw-backend-1.0.jar".
-4. You can check the API documentation and test the API by going to the URL: http://localhost:8093/swagger-ui.html#/
+4. You can check the API documentation and test the API by going to the URL: http://localhost:8080/swagger-ui.html#/
+
+## Self Hosted version of the application
+1. A self hosted version of this API can be accessed at: 34.72.253.68:8080/swagger-ui.html
