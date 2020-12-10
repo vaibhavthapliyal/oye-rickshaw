@@ -8,7 +8,7 @@ The project consists of two APIs:
 1. Location Tracking API: The PUT API takes in a JSON value and indexes the updated location of the vehicle in elasticsearch. It also indexes fields like vehicle number, vehicle type and owner name for further use.
 
 Sample Request JSON:
-
+```
 {
   "location": {
     "lat": 28.566394,
@@ -18,18 +18,20 @@ Sample Request JSON:
   "vehicleNo": "DL9CD5019",
   "vehicleType": "CAR"
 }
-
+```
 2. Get Nearby Vehicles API: The GET API takes lat and lon parameters(user's current location) and returns a list of vehicles within 200 kms. This is done through elasticsearchs geo distance query. Vehicle number, owner name and vehicle type is also returned along with the last updated location of the vehicle.
 
 Sample Request:
+```
 {
   "location": {
     "lat": 28.564321,
     "lon": 77.205249
   }
 }
-
+```
 Sample Response:
+```
 {
   "message": "Found 2 vehicles within 200 KMS.",
   "status": true,
@@ -55,9 +57,9 @@ Sample Response:
     }
   ]
 }
-
+```
 ## Prerequisites and setup
-1. This application needs elasticsearch to be installed on local system.
+1. This application needs elasticsearch and java to be installed on local system and requires maven to build.
 
 For mac os 10 and later
 
@@ -83,7 +85,7 @@ sudo -i service elasticsearch stop
 ## Creating Index mapping 
 
 1. Once elasticsearch has started, issue the following command to create the index and appropriate mapping:
-
+```
 curl -X PUT "localhost:9200/vehicle_location_tracking?pretty" -H 'Content-Type: application/json' -d'
 {
   "settings": {
@@ -108,7 +110,7 @@ curl -X PUT "localhost:9200/vehicle_location_tracking?pretty" -H 'Content-Type: 
   }
 }
 '
-
+```
 ## Starting the application
 
 1. Clone this repository and use the cd command to go inside the "oye-rickshaw-assignment" folder.
